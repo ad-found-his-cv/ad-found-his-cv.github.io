@@ -1,0 +1,243 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #2b2b2b; /* Dark backdrop to make the paper pop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Old Standard TT', serif;
+    color: #1a1a1a;
+}
+
+.container {
+    padding: 20px;
+}
+
+/* Page Setup */
+.page {
+    background-color: #f6f4ed; /* Authentic vintage paper color */
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid #dcdacb;
+    overflow: hidden;
+}
+
+.page-content {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Page 1: Header Styles */
+.newspaper-header {
+    text-align: center;
+    border-bottom: 4px solid #1a1a1a;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.breaking-news {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.newspaper-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.header-sub {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 5px 0;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.main-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+/* Front Page Stats Box */
+.stats-box {
+    border: 2px solid #1a1a1a;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    background-color: rgba(0,0,0,0.02);
+}
+
+.stats-box ul {
+    list-style: none;
+}
+
+.stats-box li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.stats-box strong {
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.dates-row {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: auto;
+    border-top: 2px solid #1a1a1a;
+    padding-top: 20px;
+}
+
+/* General Typography & Sections */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.article-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider {
+    height: 2px;
+    background-color: #1a1a1a;
+    margin: 30px 0;
+}
+
+.fun-facts {
+    list-style: none;
+    padding: 0;
+}
+
+.fun-facts li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Page 3: Games & Events */
+.game-instructions {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.word-search {
+    font-family: monospace;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    letter-spacing: 12px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.timeline-column {
+    flex: 1;
+}
+
+.timeline-column h3 {
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.timeline-column ul {
+    list-style: none;
+}
+
+.timeline-column li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted #1a1a1a;
+    padding: 8px 0;
+    font-size: 1rem;
+}
+
+.timeline-column span {
+    font-weight: bold;
+}
+
+/* Page 4: Wedding Party & Thanks */
+.party-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: center;
+}
+
+.party-group h4 {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+}
+
+.thanks-text {
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    font-size: 1.3rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.hashtag-box {
+    margin-top: auto;
+    text-align: center;
+    border: 2px dashed #1a1a1a;
+    padding: 20px;
+}
+
+.hashtag-box h2 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 10px;
+    font-size: 2rem;
+}
