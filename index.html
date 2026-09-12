@@ -3,12 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Adriealle & Christeena - Udaipur Post</title>
+    <title>Adriealle & Christeena - Wedding Invitation</title>
     
+	  <!-- Meta Tags for Link Previews (WhatsApp, iMessage, Facebook, etc.) -->
+    <meta name="description" content="Hello we invite you to the wedding of Adriealle and Christeena">
+    <meta property="og:title" content="Adriealle & Christeena - Udaipur Post">
+    <meta property="og:description" content="Hello we invite you to the wedding of Adriealle and Christeena">
+    <meta property="og:image" content="assets/page1.png">
+    <meta property="og:type" content="website">
+
 				  
+																																															  
+	
+					  
+																								   
+																																															 
+
+		   
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
-					  
+					
     <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -98,8 +112,6 @@
             left: 75%; width: 33%; transform: translate(-50%, -50%);
         }
         #inline-video-container.playing { opacity: 1; pointer-events: auto; }
-		
-																				
         #inline-video-container video { width: 100%; height: 100%; object-fit: contain; display: block; }
 
         #rsvp-link-overlay {
@@ -267,7 +279,7 @@
                     <div class="form-group" style="flex: 1;"><label>Date of Arrival</label><input type="date" id="rsvp-arrival" required value="2026-10-16"></div>
                     <div class="form-group" style="flex: 1;"><label>Date of Departure</label><input type="date" id="rsvp-departure" required value="2026-10-19"></div>
                 </div>
-
+					  
                 <div class="form-group">
                     <label>Meal Preference</label>
                     <div class="radio-group">
@@ -280,7 +292,7 @@
                     <input type="checkbox" id="rsvp-alcohol" value="Yes">
                     <label for="rsvp-alcohol">We will be partaking in alcoholic beverages</label>
                 </div>
-
+															   
                 <button type="submit" class="submit-btn" id="submit-btn">Send RSVP</button>
             </form>
         </div>
@@ -443,7 +455,7 @@
                 }
             }
 			
-			// Automatically close video player when video finishes playing
+			 // Automatically close video player when video finishes playing
             weddingVideo.addEventListener('ended', () => {
                 inlineVideoContainer.classList.remove('playing');
                 resumeBackgroundMusic();
@@ -455,7 +467,7 @@
                     playOverlay.classList.add('visible');
                 }
             });
-
+																			   
             activePageFlipInstance = new St.PageFlip(newspaper, {
                 width: 700, height: 990, size: "fixed", showCover: false, 
                 drawShadow: true, maxShadowOpacity: 0.5, usePortrait: true 
@@ -486,7 +498,7 @@
                 inlineVideoContainer.addEventListener(evt, (e) => e.stopPropagation());
                 rsvpLinkOverlay.addEventListener(evt, (e) => e.stopPropagation());
             });
-			   
+												
             activePageFlipInstance.on('flip', (e) => {
                 flipIndicator.classList.remove('visible'); 
                 
@@ -500,7 +512,7 @@
                     playOverlay.classList.remove('visible');
                     rsvpLinkOverlay.classList.remove('visible'); 
                     inlineVideoContainer.classList.remove('playing');
-																	 
+
                     if (!weddingVideo.paused) {
                         weddingVideo.pause();
                         resumeBackgroundMusic();
