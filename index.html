@@ -9,20 +9,11 @@
     <meta name="description" content="Hello we invite you to the wedding of Adriealle and Christeena">
     <meta property="og:title" content="Adriealle & Christeena - Wedding Invitation">
     <meta property="og:description" content="Hello we invite you to the wedding of Adriealle and Christeena">
-    <meta property="og:image" content="https://github.com/ad-found-his-cv/ad-found-his-cv.github.io/blob/main/assets/page1.png">
+    <meta property="og:image" content="assets/page1.png">
     <meta property="og:type" content="website">
 
-				  
-																																															  
-	
-					  
-																								   
-																																															 
-
-		   
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
-					
     <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -68,7 +59,17 @@
             z-index: 10;
         }
 
-        .container { width: 100vw; height: 100vh; overflow: auto; }
+			
+        .container { 
+            width: 100vw; height: 100vh; overflow: auto; 
+            user-select: none; -webkit-user-select: none;
+        }
+        .container.zoomed-mode {
+            cursor: grab;
+        }
+        .container.zoomed-mode:active {
+            cursor: grabbing;
+        }
 
         #layout-wrapper {
             position: relative; margin: 0 auto; transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
@@ -78,7 +79,7 @@
             position: absolute; top: 0; left: 0; transform-origin: top left; transition: transform 0.3s ease-in-out; 
         }
 
-        #newspaper { display: block; width: 100%; height: 100%; }
+        #newspaper { display: block; width: 100%; height: 100%; pointer-events: auto; }
 
         /* --- FLIP INDICATOR --- */
         #flip-indicator {
@@ -194,11 +195,15 @@
             padding: 12px 24px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             z-index: 1000; border: 1px solid rgba(255,255,255,0.2);
         }
-        .controls-bar button {
+            .controls-bar button, .controls-bar a {
             background: none; border: none; color: #f6f4ed; cursor: pointer; width: 45px; height: 45px;
             display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s ease;
+            text-decoration: none;
         }
-        .controls-bar button svg { width: 28px; height: 28px; fill: currentColor; }
+        .controls-bar button:hover, .controls-bar a:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .controls-bar button svg, .controls-bar a svg { width: 24px; height: 24px; fill: currentColor; }
 
         .container::-webkit-scrollbar { width: 8px; height: 8px; }
         .container::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.3); border-radius: 4px; }
@@ -206,7 +211,7 @@
         @media (max-width: 768px) {
             .profile-title { font-size: 7vw; margin-bottom: 2em; }
             .profiles-container { flex-direction: column; gap: 8vw; }
-            .controls-bar button { width: 40px; height: 40px; }
+            .controls-bar button, .controls-bar a { width: 40px; height: 40px; }
         }
     </style>
 </head>
@@ -255,6 +260,14 @@
         <div class="controls-bar">
             <button id="btn-prev" title="Previous Page"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
             <button id="btn-zoom" title="Zoom In/Out"><svg id="icon-zoom-in" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></button>
+			<!-- Dual-Action Download & Open Link -->
+            <a href="assets/newsletter.pdf" 
+               download="Adriealle_and_Christeena_Wedding_Invite.pdf" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               title="Download & View PDF">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            </a>
             <button id="btn-next" title="Next Page"><svg viewBox="0 0 24 24"><path d="M10.59 16.59L12 18l6-6-6-6-1.41 1.41L15.17 12z"/></svg></button>
         </div>
     </div>
@@ -279,7 +292,6 @@
                     <div class="form-group" style="flex: 1;"><label>Date of Arrival</label><input type="date" id="rsvp-arrival" required value="2026-10-16"></div>
                     <div class="form-group" style="flex: 1;"><label>Date of Departure</label><input type="date" id="rsvp-departure" required value="2026-10-19"></div>
                 </div>
-					  
                 <div class="form-group">
                     <label>Meal Preference</label>
                     <div class="radio-group">
@@ -292,7 +304,6 @@
                     <input type="checkbox" id="rsvp-alcohol" value="Yes">
                     <label for="rsvp-alcohol">We will be partaking in alcoholic beverages</label>
                 </div>
-															   
                 <button type="submit" class="submit-btn" id="submit-btn">Send RSVP</button>
             </form>
         </div>
@@ -467,7 +478,6 @@
                     playOverlay.classList.add('visible');
                 }
             });
-																			   
             activePageFlipInstance = new St.PageFlip(newspaper, {
                 width: 700, height: 990, size: "fixed", showCover: false, 
                 drawShadow: true, maxShadowOpacity: 0.5, usePortrait: true 
@@ -498,7 +508,6 @@
                 inlineVideoContainer.addEventListener(evt, (e) => e.stopPropagation());
                 rsvpLinkOverlay.addEventListener(evt, (e) => e.stopPropagation());
             });
-												
             activePageFlipInstance.on('flip', (e) => {
                 flipIndicator.classList.remove('visible'); 
                 
@@ -512,7 +521,6 @@
                     playOverlay.classList.remove('visible');
                     rsvpLinkOverlay.classList.remove('visible'); 
                     inlineVideoContainer.classList.remove('playing');
-
                     if (!weddingVideo.paused) {
                         weddingVideo.pause();
                         resumeBackgroundMusic();
@@ -526,12 +534,58 @@
                 isZoomed = !isZoomed;
                 updateScale(); 
                 if (isZoomed) {
+                    scrollContainer.classList.add('zoomed-mode');
                     btnZoom.innerHTML = '<svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M7 9h5v2H7z"/></svg>';
                 } else {
+                    scrollContainer.classList.remove('zoomed-mode');
                     btnZoom.innerHTML = '<svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg>';
                     setTimeout(() => scrollContainer.scrollTo({ top: 0, left: 0, behavior: 'smooth' }), 300);
                 }
             });
+            // --- ROBUST MOUSE & TOUCH PANNING LOGIC WHEN ZOOMED ---
+            let isDragging = false;
+            let startX, startY, scrollLeft, scrollTop;
+
+            scrollContainer.addEventListener('mousedown', (e) => {
+                if (!isZoomed) return;
+                isDragging = true;
+														  
+                startX = e.pageX - scrollContainer.offsetLeft;
+                startY = e.pageY - scrollContainer.offsetTop;
+                scrollLeft = scrollContainer.scrollLeft;
+                scrollTop = scrollContainer.scrollTop;
+            });
+
+																																												
+            window.addEventListener('mouseup', () => { isDragging = false; });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging || !isZoomed) return;
+                e.preventDefault();
+                const x = e.pageX - scrollContainer.offsetLeft;
+                const y = e.pageY - scrollContainer.offsetTop;
+                scrollContainer.scrollLeft = scrollLeft - (x - startX);
+                scrollContainer.scrollTop = scrollTop - (y - startY);
+            });
+
+            // Mobile Touch support for panning
+            scrollContainer.addEventListener('touchstart', (e) => {
+                if (!isZoomed || e.touches.length !== 1) return;
+                isDragging = true;
+                startX = e.touches[0].pageX - scrollContainer.offsetLeft;
+                startY = e.touches[0].pageY - scrollContainer.offsetTop;
+                scrollLeft = scrollContainer.scrollLeft;
+                scrollTop = scrollContainer.scrollTop;
+            }, { passive: true });
+
+            window.addEventListener('touchend', () => { isDragging = false; });
+            window.addEventListener('touchmove', (e) => {
+                if (!isDragging || !isZoomed || e.touches.length !== 1) return;
+                const x = e.touches[0].pageX - scrollContainer.offsetLeft;
+                const y = e.touches[0].pageY - scrollContainer.offsetTop;
+                scrollContainer.scrollLeft = scrollLeft - (x - startX);
+                scrollContainer.scrollTop = scrollTop - (y - startY);
+            }, { passive: true });
 
             let isFlipping = false;
             scrollContainer.addEventListener('wheel', (e) => {
@@ -540,8 +594,7 @@
                 else if (e.deltaY < 0) { activePageFlipInstance.flipPrev(); isFlipping = true; }
                 setTimeout(() => isFlipping = false, 600); 
             }, { passive: false });
-			
-			
+
             flipbookInitialized = true;
         }
     </script>
